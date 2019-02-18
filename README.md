@@ -2,7 +2,8 @@
 
 Run it !
 
-mvn clean install
+mvn clean install &
+
 mvn spring-boot:run
 
 Access the Application :
