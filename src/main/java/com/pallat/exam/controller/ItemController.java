@@ -21,8 +21,7 @@ public class ItemController {
     @RequestMapping("/updateItem")
     @ResponseBody
     public String updateItem(@RequestParam("itemId") int itemId, @RequestParam("name") String name) {
-        //return itemRepo.updateItem(itemId,name);
-        if (itemRepo.addItem(itemId,name) >= 1) {
+        if (itemRepo.updateItem(itemId,name) >= 1) {
             return "Item Updated Successfully";
         } else {
             return "Something went wrong !";

@@ -3,7 +3,6 @@ package com.pallat.exam.model;
 public class Item {
     private int id;
     private String name;
-    //private String category;
 
     public Item() {
     }
@@ -11,7 +10,6 @@ public class Item {
     public Item(int id, String name) {
         this.id = id;
         this.name = name;
-        //this.category = category;
     }
 
     public int getId() {
@@ -30,11 +28,5 @@ public class Item {
         this.name = name;
     }
 
-//    public String getCategory() {
-//        return category;
-//    }
-//
-//    public void setCategory(String category) {
-//        this.category = category;
-//    }
+
 }

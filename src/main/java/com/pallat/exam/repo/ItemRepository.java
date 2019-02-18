@@ -2,7 +2,6 @@ package com.pallat.exam.repo;
 
 import com.pallat.exam.model.Item;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
@@ -16,18 +15,16 @@ public class ItemRepository {
 
     /* Getting all Items from table */
     public List<Item> getAllItems() {
-        List<Item> items = template.query("select Id, Name from Item", (result,
-                rowNum) -> new Item(result.getInt("id"), result.getString("name")));
+        List<Item> items = template.query("select Id, Name from Item",
+                (result, rowNum) -> new Item(result.getInt("id"), result.getString("name")));
         return items;
     }
 
     /* Updating a specific item by item id from table */
     public int updateItem(int itemId, String name) {
-    	System.out.println("inside update");
+        System.out.println("inside update");
         String query = "UPDATE Item SET Name = ? where id = ?";
-        //Item item = template.queryForObject(query, new Object[] { itemId }, new BeanPropertyRowMapper<>(Item.class));
-        return template.update(query, itemId, name );
-        //return item;
+        return template.update(query, name, itemId);
     }
 
     /* Adding an item into database table */
